@@ -1,0 +1,23 @@
+{
+  "name": "IYMPACK - Berbagi Untuk Bersama",
+  "short_name": "IYMPACK",
+  "description": "Gerakan pemuda sukarela untuk pemerataan pendidikan dan aksi sosial di Indonesia.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1c241e",
+  "theme_color": "#1c241e",
+  "icons": [
+    {
+      "src": "/assets/logo/logotp-removebg-preview.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/logo/logotp-removebg-preview.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

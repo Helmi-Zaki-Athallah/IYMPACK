@@ -1,0 +1,32 @@
+# ─── IYMPACK Media Storage Protection ──────────────────────────
+# Mencegah eksekusi skrip berbahaya di folder uploads (Web Shell Defense)
+
+# 1. Nonaktifkan engine interpreter PHP
+<IfModule mod_php.c>
+  php_flag engine off
+</IfModule>
+<IfModule mod_php7.c>
+  php_flag engine off
+</IfModule>
+<IfModule mod_php8.c>
+  php_flag engine off
+</IfModule>
+
+# 2. Hapus asosiasi file handler untuk script
+RemoveHandler .php .phtml .php3 .php4 .php5 .php7 .php8 .phps .phar .cgi .pl .py .sh .bash .exe
+RemoveType .php .phtml .php3 .php4 .php5 .php7 .php8 .phps .phar .cgi .pl .py .sh .bash .exe
+
+# 3. Blokir total akses langsung jika ada file script berbahaya
+<FilesMatch "(?i:\.(php|phtml|php[0-9]|phps|phar|sh|pl|py|cgi|asp|aspx|jsp|html|htm|js|exe|bat|cmd|htaccess|htpasswd))$">
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>
+
+# 4. Hanya izinkan berkas statis media yang sah
+<FilesMatch "(?i:\.(jpg|jpeg|png|webp|gif|pdf))$">
+  Order Allow,Deny
+  Allow from all
+</FilesMatch>
+
+# 5. Nonaktifkan indexing direktori dan eksekusi CGI
+Options -ExecCGI -Indexes

@@ -1,0 +1,46 @@
+# IYMPACK (Indonesia Yuwana Muda Peduli Aksi Cinta Kasih)
+
+> Gerakan pemuda sukarela untuk pemerataan pendidikan, aksi sosial kemanusiaan, dan pemberdayaan generasi muda di berbagai penjuru Indonesia. Slogan: "Berbagi Untuk Bersama".
+
+## Ringkasan Organisasi
+IYMPACK adalah yayasan dan organisasi kepemudaan non-profit (NGO) yang berfokus pada:
+1. **Pemerataan Pendidikan**: Penyelenggaraan kelas inspirasi relawan, donasi buku bacaan, revitalisasi perpustakaan pelosok.
+2. **Aksi Sosial & Lingkungan**: Gerakan tanggap bencana, pelestarian alam (penanaman pohon, clean-up pantai/sungai), santunan adik asuh.
+3. **Pemberdayaan Pemuda**: Pelatihan kepemimpinan, kerelawanan, dan pengembangan karakter anak muda berdaya.
+
+## Halaman Utama
+- [Beranda](https://iympack.org/): Informasi utama gerakan, pilar keterlibatan, metrik dampak, dan ringkasan agenda.
+- [Agenda Kegiatan](https://iympack.org/#/event): Direktori seluruh program relawan terbuka, kuota relawan, jadwal, lokasi, dan formulir pendaftaran.
+- [Artikel & Kabar](https://iympack.org/#/artikel): Liputan berita aksi lapangan, catatan perjalanan relawan, dan opini sosial.
+- [Tentang Kami & Tim](https://iympack.org/#/tentang-kami): Sejarah, visi, misi, legalitas, struktur pengurus pusat, dan daftar chapter kota.
+- [Galeri](https://iympack.org/#/galeri): Dokumentasi foto kegiatan aksi sosial.
+- [FAQ](https://iympack.org/#/faq): Pertanyaan yang sering diajukan seputar pendaftaran relawan dan donasi.
+- [Kontak & Kemitraan](https://iympack.org/#/kontak): Pengajuan kolaborasi komunitas, sponsorship perusahaan, dan narahubung resmi.
+
+## Cabang & Chapter Kota
+IYMPACK aktif beroperasi di beberapa chapter regional:
+- Pusat (Nasional)
+- Jakarta
+- Bogor
+- Depok
+- Tangerang
+- Bekasi
+- Bandung
+- Yogyakarta
+
+## Format Pendaftaran Relawan
+Setiap kegiatan memiliki detail:
+- Nama Program
+- Kategori (Pendidikan, Lingkungan, Kemanusiaan, Sosial)
+- Tanggal & Waktu Pelaksanaan
+- Lokasi (Titik Kumpul / Lapangan)
+- Kuota Relawan Terbuka
+- HTM / Kontribusi (Bebas / Donasi)
+- Formulir pendaftaran online langsung dengan verifikasi WhatsApp.
+
+## Media Sosial & Kontak
+- Instagram: [@iympack.id](https://instagram.com/iympack.id)
+- TikTok: [@iympack.id](https://tiktok.com/@iympack.id)
+- Email: kontak@iympack.org
+
+Untuk konteks komprehensif, silakan baca [llms-full.txt](https://iympack.org/llms-full.txt).

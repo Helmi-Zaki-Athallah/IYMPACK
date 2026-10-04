@@ -1,0 +1,121 @@
+# ─── IYMPACK Production Server Hardening & Security Configuration ─
+# Optimized for Hostinger LiteSpeed / Apache Web Server
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1. Pass Authorization Header to PHP (LiteSpeed / FastCGI / Apache)
+  SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+  RewriteCond %{HTTP:Authorization} ^(.*)
+  RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+
+  # 2. Force HTTPS (Safe for Hostinger SSL & Cloudflare Proxy)
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # 3. Blokir Akses ke File Tersembunyi (Hidden Files & Folders)
+  # Kecuali .well-known untuk verifikasi sertifikat SSL Let's Encrypt
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteRule "(^|/)\.(?!well-known)" - [F,L]
+
+  # 4. Allow Direct Access to Static Files & Existing Directories
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # 5. React Router SPA Fallback (All other virtual routes to index.html)
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# ─── Blokir Akses ke Berkas Sensitif & Konfigurasi Rahasia ────────
+<FilesMatch "(?i:(\.env|\.git|\.yml|\.yaml|\.lock|\.sql|\.log|\.bak|\.swp|config\.php|config\.example\.php|collections\.json|rate_limits\.json|\.zip|\.tar|\.gz))$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order Allow,Deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# ─── HTTP Security Headers (OWASP Top 10 Hardening) ───────────────
+<IfModule mod_headers.c>
+  # 1. Content Security Policy (CSP) — Mengizinkan Google Maps, YouTube, dan font eksternal
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; media-src 'self' data: blob: https:; frame-src 'self' https://www.google.com https://maps.google.com https://*.google.com https://www.youtube.com https://*.youtube.com; connect-src 'self' https://demo.iympack.id; frame-ancestors 'self'; object-src 'none'; base-uri 'self';"
+
+  # 2. Strict-Transport-Security (HSTS) — Memaksa koneksi HTTPS selama 1 Tahun
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+  # 3. Anti-Clickjacking
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # 4. MIME-Sniffing Defense
+  Header always set X-Content-Type-Options "nosniff"
+
+  # 5. Referrer Policy
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # 6. Permissions Policy
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+
+  # 7. Vite Built Assets (Immutable Fingerprinted Chunks) — 1 Tahun
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "max-age=31536000, public, immutable"
+  </FilesMatch>
+
+  # 8. Media & Web Fonts — 1 Bulan
+  <FilesMatch "\.(webp|png|jpg|jpeg|gif|svg|woff2|woff|ttf)$">
+    Header set Cache-Control "max-age=2592000, public"
+  </FilesMatch>
+
+  # 9. HTML (index.html) — Selalu fresh agar rilis baru terbaca langsung
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  # 10. Backend PHP Endpoints — Strict Anti-Cache
+  <FilesMatch "\.(php)$">
+    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+    Header set X-LiteSpeed-Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+# ─── Gzip & Brotli Compression ───────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+  AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/xml application/rss+xml
+  AddOutputFilterByType DEFLATE image/svg+xml font/ttf font/otf application/vnd.ms-fontobject
+</IfModule>
+
+# ─── Browser Caching & Expiration ────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/json "access plus 0 seconds"
+
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType application/x-javascript "access plus 1 year"
+
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/ttf "access plus 1 year"
+</IfModule>
+
+# Nonaktifkan Directory Listing
+Options -Indexes

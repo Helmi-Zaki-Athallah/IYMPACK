@@ -1,0 +1,71 @@
+================================================================================
+                    PANDUAN LENGKAP DEPLOYMENT IYMPACK KE HOSTINGER
+================================================================================
+
+Folder ZIP ini telah ditata dengan sangat rapi ke dalam folder-folder terpisah:
+
+📁 STRUKTUR FOLDER:
+├── 📁 frontend/   -> Seluruh file tampilan web (React SPA, HTML, CSS, JS, Gambar, Ikon)
+├── 📁 backend/    -> Seluruh script API PHP (/api/), uploads/, dan konfigurasi server
+│   └── 📁 api/    -> Script REST API (auth.php, collections.php, db.php, config.php, dll.)
+├── 📁 database/   -> File iympack_database.sql (Skema tabel database MySQL Hostinger)
+├── 📄 .htaccess   -> Master routing otomatis agar frontend dan backend langsung terhubung
+└── 📄 PANDUAN_UPLOAD_HOSTINGER.txt
+
+================================================================================
+CARA 1: UPLOAD LANGSUNG (PALING MUDAH & OTOMATIS)
+================================================================================
+Master file .htaccess yang ada di luar folder sudah diprogram secara otomatis 
+mengarahkan:
+- URL /api/...     -> otomatis ke folder backend/api/
+- URL /uploads/... -> otomatis ke folder backend/uploads/
+- URL lainnya      -> otomatis ke folder frontend/
+
+Langkah-langkah:
+1. Buka File Manager di hPanel Hostinger.
+2. Masuk ke folder: public_html
+3. Upload file ZIP ini ke dalam public_html, lalu klik kanan -> "Extract".
+4. Pastikan file .htaccess di luar folder ikut terekstrak di public_html.
+5. Selesai! Website langsung aktif dan rapi.
+
+================================================================================
+CARA 2: UPLOAD SESUAI STANDAR HOSTINGER (OPSIONAL)
+================================================================================
+Jika Anda ingin isi frontend ditaruh langsung di akar public_html:
+1. Ekstrak file ZIP di komputer Anda.
+2. Buka folder "frontend", lalu upload SEMUA isinya ke dalam public_html.
+3. Buka folder "backend", lalu upload folder "api" dan folder "uploads" ke dalam public_html.
+4. Sehingga di dalam public_html terdapat:
+   - index.html
+   - assets/
+   - api/
+   - uploads/
+   - .htaccess
+   - dan file-file pendukung lainnya.
+
+================================================================================
+KONFIGURASI DATABASE MYSQL DI HOSTINGER:
+================================================================================
+1. Buka hPanel Hostinger -> Menu "Databases" -> "MySQL Databases".
+2. Buat database baru (misal: u405306452_iympack) beserta user dan password-nya.
+3. Klik tombol "Enter phpMyAdmin" pada database tersebut.
+4. Klik tab "Import", pilih file: database/iympack_database.sql lalu klik "Go".
+5. Buka file backend/api/config.php (atau api/config.php), lalu pastikan nama database,
+   user, dan password sesuai dengan yang Anda buat di Hostinger:
+   
+   return [
+       'host' => 'localhost',
+       'dbname' => 'NAMA_DATABASE_ANDA',
+       'username' => 'USERNAME_DATABASE_ANDA',
+       'password' => 'PASSWORD_DATABASE_ANDA',
+       ...
+   ];
+
+================================================================================
+CATATAN PENTING FITUR MULTI-DEVICE:
+================================================================================
+- Masa aktif sesi admin sekarang diset 30 hari penuh dengan auto-sliding.
+- Setiap kali Anda mengedit dari HP, perubahan langsung tersimpan ke database MySQL.
+- Ketika Anda membuka di Laptop/Komputer lain, tampilan akan otomatis sinkron
+  dalam beberapa detik (atau saat tab browser difokuskan kembali).
+================================================================================

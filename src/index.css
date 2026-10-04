@@ -1,0 +1,284 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #4a6859;
+  --color-forest-dark: #252f27;
+  --color-forest-light: #819b8e;
+  --color-sage: #819b8e;
+  --color-sage-dark: #4a6859;
+  --color-sage-light: #eef3f0;
+  --color-caramel: #b78958;
+  --color-caramel-hover: #9e7141;
+  --color-caramel-light: #f9f2e8;
+  --color-amber-gold: #b78958;
+  --color-amber-hover: #9e7141;
+  --color-orange-warm: #c58e57;
+  --color-yellow-soft: #faeed4;
+  --color-cream: #faeed4;
+  --color-cream-soft: #fbf9f4;
+  --color-dark-bg: #1c241e;
+  --color-dark-card: #252f27;
+}
+
+:root {
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  max-width: 100vw;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #1c241e;
+  color: #eef3f0;
+  overflow-x: hidden;
+  max-width: 100vw;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Prevent iOS Safari aggressive auto-zoom on form inputs */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  input[type="number"],
+  input[type="search"],
+  input[type="url"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading);
+}
+
+/* ─── Ultra-Smooth Hardware Accelerated Glassmorphism Classes ─── */
+.glass-panel {
+  background: rgba(37, 47, 39, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+  transform: translateZ(0);
+}
+
+.glass-panel-subtle {
+  background: rgba(37, 47, 39, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transform: translateZ(0);
+}
+
+.glass-card {
+  background: rgba(37, 47, 39, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.35), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  transform: translateZ(0);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 16px 35px -8px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(129, 155, 142, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+}
+
+/* ─── Light Frosted Glassmorphism for Admin CMS (Sleek Neumorphic-Glass) ─── */
+.glass-admin-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1.5px solid rgba(255, 255, 255, 0.88);
+  box-shadow: 0 14px 34px -4px rgba(112, 144, 176, 0.12), 0 3px 12px -1px rgba(112, 144, 176, 0.05), inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.glass-admin-card-hover {
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-admin-card-hover:hover {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(255, 255, 255, 0.98);
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px -4px rgba(112, 144, 176, 0.16), 0 6px 16px -2px rgba(112, 144, 176, 0.08), inset 0 1px 1px 0 rgba(255, 255, 255, 1);
+}
+
+.glass-admin-sidebar {
+  background: rgba(241, 245, 249, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-right: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 4px 0 24px 0 rgba(112, 144, 176, 0.04);
+}
+
+.glass-admin-header {
+  background: rgba(241, 245, 249, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 4px 20px 0 rgba(112, 144, 176, 0.03);
+}
+
+.glass-admin-pill {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(112, 144, 176, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+/* ─── Holographic Iridescent Glass Card (Signature Reference Look) ─── */
+.glass-holographic-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 246, 255, 0.75) 35%, rgba(255, 242, 248, 0.7) 65%, rgba(242, 252, 247, 0.8) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 16px 36px -4px rgba(112, 144, 176, 0.16), inset 0 1px 1.5px 0 rgba(255, 255, 255, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-holographic-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent 35%, rgba(255, 255, 255, 0.35) 48%, rgba(255, 220, 235, 0.3) 53%, rgba(210, 240, 255, 0.35) 58%, transparent 68%);
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
+/* ─── Custom Subtle Scrollbar for Glass Admin ─── */
+.glass-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(74, 104, 89, 0.25) transparent;
+  overscroll-behavior: contain;
+}
+
+.glass-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.glass-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.glass-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(74, 104, 89, 0.2);
+  border-radius: 9999px;
+}
+
+.glass-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(74, 104, 89, 0.4);
+}
+
+
+/* ─── Slanted Pills Mask for About section ─── */
+.slanted-pill-container {
+  display: flex;
+  gap: 16px;
+  transform: rotate(-22deg);
+  padding: 20px;
+}
+
+.slanted-pill-item {
+  width: 110px;
+  border-radius: 9999px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  border: 4px solid #252f27;
+  position: relative;
+  background: #252f27;
+  transition: transform 0.4s ease;
+}
+
+.slanted-pill-item:hover {
+  /* No scale zoom on hover */
+}
+
+.slanted-pill-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: rotate(22deg) scale(1.45);
+  transform-origin: center center;
+  transition: transform 0.4s ease;
+}
+
+.slanted-pill-item:hover img {
+  transform: rotate(22deg) scale(1.45);
+}
+
+/* ─── Lightweight High-Performance Decorative Patterns ─── */
+/* 1. Dotted Matrix Pattern (Zero GPU Overhead) */
+.bg-dots-pattern {
+  background-image: radial-gradient(rgba(129, 155, 142, 0.22) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+/* 2. Architectural Grid Pattern */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* 3. Topographic Organic Waves Pattern */
+.bg-topo-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='500' height='500' viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(129,155,142,0.1)' stroke-width='1'%3E%3Cpath d='M0 80 C 150 120, 280 40, 500 90'/%3E%3Cpath d='M0 160 C 120 220, 320 110, 500 180'/%3E%3Cpath d='M0 240 C 180 200, 300 280, 500 230'/%3E%3Cpath d='M0 320 C 140 380, 360 290, 500 350'/%3E%3Cpath d='M0 400 C 170 440, 320 370, 500 420'/%3E%3Cpath d='M0 480 C 130 520, 380 460, 500 500'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 500px 500px;
+}
+
+/* 4. Radial Mesh Gradients */
+.bg-radial-mesh {
+  background-image: 
+    radial-gradient(at 15% 15%, rgba(129, 155, 142, 0.12) 0px, transparent 55%),
+    radial-gradient(at 85% 25%, rgba(250, 238, 212, 0.05) 0px, transparent 50%),
+    radial-gradient(at 50% 85%, rgba(74, 104, 89, 0.14) 0px, transparent 60%);
+}
+
+/* Ultra-Fast Hardware-Accelerated Page Transitions */
+@keyframes fadeInQuick {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-quick {
+  animation: fadeInQuick 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1c241e;
+}
+::-webkit-scrollbar-thumb {
+  background: #4a6859;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #819b8e;
+}
+

@@ -1,0 +1,42 @@
+# IYMPACK (Indonesia Yuwana Muda Peduli Aksi Cinta Kasih) — Full Context
+
+## 1. Identitas & Legalitas
+- Nama Resmi: Yayasan Indonesia Yuwana Muda Peduli Aksi Cinta Kasih (IYMPACK)
+- Tahun Berdiri: 2024
+- Status: Organisasi Nirlaba (NGO) / Kepemudaan
+- Slogan: "Berbagi Untuk Bersama"
+- Visi: Mewujudkan generasi muda Indonesia yang berdaya, peduli sesama, dan berjiwa sosial tinggi demi pemerataan pendidikan serta kesejahteraan anak-anak bangsa.
+- Misi:
+  1. Menggalang energi pemuda Indonesia dalam aksi kerelawanan nyata.
+  2. Menyelenggarakan kelas belajar inspiratif dan sarana literasi di sekolah terpencil.
+  3. Membangun kolaborasi strategis antara komunitas, institusi pendidikan, dan mitra korporat.
+  4. Menyediakan ruang aman bagi relawan untuk bertumbuh dan berdampak positif.
+
+## 2. Program Utama
+- **IYMPACK Mengajar**: Mengirimkan relawan muda terpilih untuk mengajar interaktif, kelas sains kreatif, pengenalan cita-cita, serta revitalisasi sudut baca dan perpustakaan sekolah di pelosok.
+- **Aksi Peduli Lingkungan**: Gerakan pelestarian alam yang meliputi pembersihan aliran sungai, penanaman pohon mangrove, edukasi daur ulang sampah plastik, dan konservasi alam.
+- **Relawan Tanggap Bencana**: Pelatihan kesiapsiagaan darurat dan distribusi bantuan logistik korban bencana alam bersama BPBD dan lembaga SAR.
+- **Berbagi Senyum Anak Nusantara**: Workshop kreatif, melukis, bermain layang-layang impian, dan santunan anak panti asuhan serta dhuafa.
+
+## 3. Struktur Regional & Chapter
+1. Pusat Kendali Nasional (IYMPACK Pusat)
+2. Chapter Jakarta
+3. Chapter Bogor
+4. Chapter Depok
+5. Chapter Tangerang
+6. Chapter Bekasi
+7. Chapter Bandung
+8. Chapter Yogyakarta
+
+Setiap chapter memiliki koordinator wilayah dan pengurus divisi (Pendidikan, Logistik, Media & Desain, Hubungan Masyarakat).
+
+## 4. Mekanisme Keterlibatan Publik
+- **Relawan Terbuka**: Siapa pun dapat mendaftar per kegiatan melalui halaman `/event/:slug/daftar`. Pendaftar mengisi data diri, nomor WhatsApp, domisili, dan motivasi.
+- **Mitra Komunitas**: Organisasi atau komunitas pemuda lain dapat mengajukan kolaborasi program melalui halaman `/kontak`.
+- **Kemitraan Perusahaan (CSR / Sponsorship)**: Lembaga korporasi dapat mendukung keberlanjutan program melalui kerjasama sponsorship atau donasi terarah.
+
+## 5. Metadata Mesin & AI Navigation Guide
+- Root URL: https://iympack.org
+- Router: HashRouter / React Router DOM
+- Data Layer: Client CMS dengan persistence LocalStorage dan sinkronisasi JSON.
+- Aksesibilitas: Mendukung navigasi keyboard penuh, pembaca layar (ARIA landmark role), dan responsive viewport mobile/tablet/desktop.

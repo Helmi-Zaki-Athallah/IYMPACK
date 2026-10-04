@@ -1,0 +1,37 @@
+# robots.txt for IYMPACK (Indonesia Yuwana Muda Peduli Aksi Cinta Kasih)
+# Official Website: https://iympack.org
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /#/admin
+Disallow: /#/admin/
+
+# Explicit permissions for Agentic AI Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemaps & AI Agent Manifests
+Sitemap: https://iympack.org/sitemap.xml
+
+# LLM & AI Agents documentation
+# See https://llmstxt.org/ for details
+# Primary agentic index: https://iympack.org/llms.txt
+# Full agentic context: https://iympack.org/llms-full.txt
+
